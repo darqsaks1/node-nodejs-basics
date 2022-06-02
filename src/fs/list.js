@@ -7,7 +7,7 @@ export const list = async () => {
   fs.readdirSync(pathFile).forEach(function (childItemName) {
     if (error) {
       console.log("FS operation failed");
-      return;
+      throw error;
     }
     console.log(childItemName);
   });

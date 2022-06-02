@@ -8,6 +8,7 @@ export const rename = async () => {
   fs.rename(pathFile, pathRename, (err) => {
     if (err) {
       console.log("FS operation failed");
+      throw err;
     }
   });
 };

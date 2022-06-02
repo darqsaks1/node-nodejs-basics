@@ -7,8 +7,8 @@ export const read = async () => {
   fs.readFile(pathFile, "utf8", function (error, data) {
     if (error) {
       console.log("FS operation failed");
-      return;
-    } 
+      throw error;
+    }
     console.log(data);
   });
 };

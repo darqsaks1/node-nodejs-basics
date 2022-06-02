@@ -8,7 +8,7 @@ export const remove = async () => {
   fs.unlink(pathFile, (err) => {
     if (err) {
       console.log("FS operation failed");
-      return;
+      throw err;
     }
   });
 };
