@@ -1,6 +1,7 @@
 import path from "path";
 import fs from "fs";
 import crypto from "crypto";
+//node src/hash/calcHash.js
 
 export const calculateHash = async () => {
   try {

@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 
+//node src/fs/create.js
 export const create = async () => {
   const __dirname = path.resolve();
   const file = `${__dirname}/src/fs/files/fresh.txt`;

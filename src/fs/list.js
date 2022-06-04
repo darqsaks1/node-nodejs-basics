@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+//node src/fs/list.js
 
 export const list = async () => {
   const __dirname = path.resolve();

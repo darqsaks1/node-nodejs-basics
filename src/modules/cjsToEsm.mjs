@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 import { release, version } from "os";
 import { createRequire } from "module";
 import "./files/c.js";
+//node src/modules/cjsToEsm.js
 
 const module = createRequire(import.meta.url);
 

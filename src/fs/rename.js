@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+//node src/fs/rename.js
 
 export const rename = async () => {
   const __dirname = path.resolve();

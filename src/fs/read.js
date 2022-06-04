@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+//node src/fs/read.js
 
 export const read = async () => {
   const __dirname = path.resolve();

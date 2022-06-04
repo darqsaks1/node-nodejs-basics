@@ -1,4 +1,5 @@
 import { env } from "process";
+//node src/cli/env.js
 
 export const parseEnv = () => {
   try {

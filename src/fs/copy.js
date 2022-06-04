@@ -1,11 +1,13 @@
 import fs from "fs";
 import path from "path";
 
+//node src/fs/copy.js
+
 export const copy = async () => {
   const __dirname = path.resolve();
   const fileFolder = `${__dirname}/src/fs/files`;
   const copyFolder = `${__dirname}/src/fs/files_copy`;
-  
+
   const recursionCopy = function (src, dest) {
     try {
       const exists = fs.existsSync(src);
@@ -16,17 +18,13 @@ export const copy = async () => {
         if (exists && isDirectory) {
           fs.mkdirSync(dest);
           fs.readdirSync(src).forEach(function (item) {
-            recursionCopy(
-              path.join(src, item),
-              path.join(dest, item)
-            );
+            recursionCopy(path.join(src, item), path.join(dest, item));
           });
         } else {
           fs.linkSync(src, dest);
         }
-      }
-      else {
-          console.log('FS OPERATION FAILED')
+      } else {
+        console.log("FS OPERATION FAILED");
       }
     } catch (error) {
       throw error;

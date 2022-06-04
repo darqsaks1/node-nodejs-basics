@@ -1,4 +1,8 @@
 import process from "process";
+
+//node src/cli/args.js
+
+
 export const parseArgs = () => {
   try {
     const arg = process.argv;
