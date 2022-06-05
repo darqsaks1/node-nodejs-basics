@@ -5,10 +5,8 @@ import { fork } from "child_process";
 
 export const spawnChildProcess = async (args) => {
   try {
-    const __dirname = path.resolve();
-    const filePath = path.join(__dirname, "src/cp/files", "script.js");
     args.length = 0;
-    fork(filePath, args);
+    fork(path.join(path.resolve(), "src/cp/files", "script.js"), args);
   } catch (error) {
     throw error;
   }
