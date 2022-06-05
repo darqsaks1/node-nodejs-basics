@@ -2,10 +2,10 @@ import { Worker } from "worker_threads";
 import os from "os";
 //node src/wt/main.js
 export const performCalculations = async () => {
-  const cpusArray = [];
+  const cp = [];
   const path = "./src/wt/worker.js";
-  os.cpus().forEach((e, index) => {
-    cpusArray.push(
+  os.cpus().forEach((elem, index) => {
+    cp.push(
       new Promise((resolve, reject) => {
         const worker = new Worker(path, {
           workerData: index + 10,
@@ -17,6 +17,6 @@ export const performCalculations = async () => {
       })
     );
   });
-  console.log(await Promise.all(cpusArray));
+  console.log(await Promise.all(cp));
 };
 performCalculations();

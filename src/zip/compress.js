@@ -4,17 +4,13 @@ import path from "path";
 //node src/zip/compress.js
 export const compress = async () => {
   try {
-    const __dirname = path.resolve();
-    const filePath = path.join(
-      __dirname,
-      "src/zip/files",
-      "fileToCompress.txt"
+    const stream = fs.createReadStream(
+      path.join(path.resolve(), "src/zip/files", "fileToCompress.txt")
     );
-    const gzPath = path.join(__dirname, "src/zip/files", "archive.gz");
-    const gzip = zlib.createGzip();
-    const stream = fs.createReadStream(filePath);
-    const zip = fs.createWriteStream(gzPath);
-    stream.pipe(gzip).pipe(zip);
+    const write = fs.createWriteStream(
+      path.join(path.resolve(), "src/zip/files", "archive.gz")
+    );
+    stream.pipe(zlib.createGzip()).pipe(write);
   } catch (error) {
     throw new Error(error);
   }

@@ -4,9 +4,7 @@ import { Transform } from "stream";
 export const transform = async () => {
   const transformStream = new Transform();
   transformStream._transform = (chunk, encoding = "utf-8", callback) => {
-    const buffered = chunk.toString();
-    const reversed = `${buffered.split("").reverse().join("")}\n`;
-    transformStream.push(reversed);
+    transformStream.push(`${chunk.toString().split("").reverse().join("")}\n`);
     callback();
   };
 

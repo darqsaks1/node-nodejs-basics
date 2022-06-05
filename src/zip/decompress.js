@@ -6,14 +6,13 @@ import path from "path";
 
 export const decompress = async () => {
   try {
-    const __dirname = path.resolve();
-    const filePath = path.join(__dirname, "src/zip/files", "archive.gz");
-    const gzPath = path.join(__dirname, "src/zip/files", "fileToCompress.txt");
-
-    const gzip = zlib.createGunzip();
-    const stream = fs.createReadStream(filePath);
-    const write = fs.createWriteStream(gzPath);
-    stream.pipe(gzip).pipe(write);
+    const stream = fs.createReadStream(
+      path.join(path.resolve(), "src/zip/files", "archive.gz")
+    );
+    const write = fs.createWriteStream(
+      path.join(path.resolve(), "src/zip/files", "fileToCompress.txt")
+    );
+    stream.pipe(zlib.createUnzip()).pipe(write);
   } catch (error) {
     throw new Error(error);
   }
